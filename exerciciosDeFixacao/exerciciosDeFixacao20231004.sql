@@ -38,3 +38,23 @@ select round(preco, 2) from produtos;
 select abs(quantidade) from produtos;
 
 select avg(preco) from produtos;
+
+Questão 3
+
+CREATE TABLE eventos(
+id_evento INT PRIMARY KEY auto_increment,
+nome_evento VARCHAR(200),
+data_evento DATETIME
+);
+
+INSERT INTO eventos (nome_evento, data_evento) VALUES
+('festa','2020-03-09 18:00:00'),
+('festinha','2006-11-12 00:30:00'),
+('evento','1998-07-29 22:45:00');
+
+INSERT INTO eventos (nome_evento, data_evento) VALUES
+('eventinho', NOW());
+
+SELECT DATEDIFF('2020-03-09 18:00:00', '1998-07-29 22:45:00');
+
+SELECT DAYNAME('2020-03-09 18:00:00');
