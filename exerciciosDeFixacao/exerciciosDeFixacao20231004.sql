@@ -79,3 +79,11 @@ SELECT produto, TOTAL_QP(preco, quantidade) as valor_total FROM produtos where p
 SELECT produto, TOTAL_QP(preco, quantidade) as valor_total FROM produtos where produto = 'peixe' UNION
 SELECT produto, TOTAL_QP(preco, quantidade) as valor_total FROM produtos where produto = 'pôneis';
 
+Questão 6
+
+SELECT COUNT(produto) FROM produtos;
+SELECT MAX(preco) FROM produtos;
+SELECT MIN(preco) FROM produtos;
+SELECT SUM(quantidade) FROM produtos;
+
+
