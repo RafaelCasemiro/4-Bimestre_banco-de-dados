@@ -86,4 +86,47 @@ SELECT MAX(preco) FROM produtos;
 SELECT MIN(preco) FROM produtos;
 SELECT SUM(quantidade) FROM produtos;
 
+Questão 7
 
+CREATE FUNCTION fator(num INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+DECLARE fat INT;
+SET fat = num;
+conta: LOOP
+SET num = num - 1 ;
+IF num<1 THEN
+LEAVE conta;
+END IF;
+SET fat = fat * num ;
+END LOOP conta;
+RETURN fat;
+END;
+
+CREATE FUNCTION cal_expo(num INT, exp INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+DECLARE n INT;
+SET n = num;
+conta: LOOP
+SET exp = exp - 1;
+IF exp=0 THEN
+LEAVE conta;
+END IF;
+SET num = num * n ;
+END LOOP conta;
+RETURN num;
+END;
+
+CREATE FUNCTION verefi_palin(palavra VARCHAR(200))
+RETURNS INT DETERMINISTIC
+BEGIN
+DECLARE resposta INT;
+DECLARE reverso VARCHAR(200);
+SET resposta = 0;
+SET reverso = REVERSE(palavra);
+IF palavra = reverso THEN 
+SET resposta = 1;
+END IF;
+RETURN resposta;
+END;
