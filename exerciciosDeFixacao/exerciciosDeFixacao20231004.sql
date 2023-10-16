@@ -58,3 +58,10 @@ INSERT INTO eventos (nome_evento, data_evento) VALUES
 SELECT DATEDIFF('2020-03-09 18:00:00', '1998-07-29 22:45:00');
 
 SELECT DAYNAME('2020-03-09 18:00:00');
+
+Questão 4
+
+SELECT produto, IF(quantidade > 0, 'Em estoque','Fora de estoque') as estoque from produtos;
+
+SELECT produto, CASE WHEN preco < 300 THEN 'barato' WHEN preco >= 300 and preco <= 1000 THEN 'médio' WHEN preco > 1000 THEN 'caro' END as categoria from produtos;
+
