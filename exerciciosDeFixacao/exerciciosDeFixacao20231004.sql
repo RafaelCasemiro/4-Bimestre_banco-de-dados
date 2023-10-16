@@ -26,7 +26,7 @@ produto VARCHAR(100),
 preco FLOAT,
 quantidade INT
 );
-
+ 
 INSERT INTO produtos VALUES 
 ('banana', 1000.900, 1000000.577),
 ('cartucho de carabina', 300.905, 100.6766),
