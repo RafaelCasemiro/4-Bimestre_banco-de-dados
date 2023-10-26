@@ -24,4 +24,19 @@ VALUES ('Você tentou deletar', NOW());
 delete from clientes
 where id = 1;
 
-select*from auditoria;
+select*from auditor;
+
+-- 3-Questão
+
+CREATE TRIGGER att_mnsg
+AFTER UPDATE ON clientes
+FOR EACH ROW
+INSERT INTO auditoria (mensagem, data_hora)
+VALUES (concat('O nome ', old.nome, ' foi modificado para' , new.nome), now());
+
+update clientes
+set nome = "Ronaldo"
+where id = 4;
+
+select * from clientes;
+select * from auditoria;
