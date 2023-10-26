@@ -61,3 +61,29 @@ SET nome = ""
 WHERE id = 3;
 // 
 DELIMITER;
+
+-- 5-Questão
+
+DELIMITER //
+CREATE TRIGGER loja_estoque
+AFTER INSERT
+ON pedidos
+FOR EACH ROW
+BEGIN
+DECLARE estoque_atual int;
+SELECT estoque INTO estoque_atual FROM produtos wHERE id = new.produto_id;
+UPDATE produtos
+SET estoque = estoque - new.quantidade
+WHERE id = new.produto_id;
+
+IF estoque_atual - new.quantidade < 5 THEN 
+	INSERT INTO auditoria (mensagem, data_hora)
+	values (concat('O estoque está acabando'),now());
+END IF;
+END;
+//
+INSERT INTO pedidos(produto_id, quantidade)
+VALUES (1, 8);
+SELECT * FROM auditoria;
+//
+DELIMITER;
