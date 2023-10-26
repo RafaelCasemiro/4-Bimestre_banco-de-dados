@@ -7,10 +7,10 @@ FOR EACH ROW
 INSERT INTO auditoria (mensagem, data_hora)
 VALUES ('Bem-Vindo(a)', NOW());
 
-insert into clientes (nome)
-values ('Junis Cleber');
+INSERT INTO clientes (nome)
+VALUES ('Junis Cleber');
 
-select*from auditoria;
+SELECT * FROM auditoria;
 
 -- 2-Questão
 
@@ -21,10 +21,10 @@ FOR EACH ROW
 INSERT INTO auditoria (mensagem, data_hora)
 VALUES ('Você tentou deletar', NOW());
 
-delete from clientes
-where id = 1;
+DELETE FROM clientes
+WHERE id = 1;
 
-select*from auditor;
+SELECT * FROM auditor;
 
 -- 3-Questão
 
@@ -35,12 +35,12 @@ FOR EACH ROW
 INSERT INTO auditoria (mensagem, data_hora)
 VALUES (concat('O nome ', old.nome, ' foi modificado para' , new.nome), now());
 
-update clientes
-set nome = "Ronaldo"
-where id = 4;
+UPDATE clientes
+SET nome = "Ronaldo"
+WHERE id = 4;
 
-select * from clientes;
-select * from auditoria;
+SELECT * FROM clientes;
+SELECT * FROM auditoria;
 
 -- 4-Questão
 
